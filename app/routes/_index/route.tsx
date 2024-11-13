@@ -5,8 +5,7 @@ import commonStyles from '~/styles/common-styles.module.scss';
 import { getUrlOriginWithPath } from '~/utils';
 import TypescriptSvg from '../../../src/assets/svg/typescript.svg';
 import ViteSvg from '../../../src/assets/svg/vite.svg';
-import { Grommet, Box, PageHeader, Anchor, Button } from 'grommet';
-import { grommet } from 'grommet/themes';
+import MyGrommetComponent from '../../../src/components/my-grommet-component/my-grommet-component';
 
 export const loader = ({ request }: LoaderFunctionArgs) => {
     return { canonicalUrl: getUrlOriginWithPath(request.url) };
@@ -14,32 +13,8 @@ export const loader = ({ request }: LoaderFunctionArgs) => {
 
 export default function HomePage() {
     return (
-        <div className={styles.root}>
-             <div>
-            <Grommet theme={grommet}>
-                <div>
-                    <Box pad="medium" style={{ maxWidth: '1024px', margin: '0 auto' }}>
-                        <PageHeader
-                            title="Pages Title"
-                            subtitle="A subtitle for the page."
-                            parent={<Anchor label="Parent Page" href="#" />}
-                            actions={<Button label="Edit" primary />}
-                        />
-                    </Box>
-                </div>
-            </Grommet>
-        </div>
-            <h2 className={styles.title}>Welcome to your App Homepage 🎉</h2>
-            <span>
-                Double click to edit App component
-                <br />
-                &amp; drag here elements from + Add <b>Elements</b> Panel
-            </span>
-            <p className={styles.paragraph}>
-                This project is using <img src={ViteSvg} width="12" />+
-                <img src={TypescriptSvg} width="12" />
-                Visit vitejs.dev to learn more.{' '}
-            </p>
+        <div>
+            <MyGrommetComponent />
         </div>
     );
 }
